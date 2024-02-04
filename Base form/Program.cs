@@ -1,18 +1,29 @@
-﻿using System;
+﻿using MainFormUI;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Base_form
+namespace ClientUI
 {
-    internal static class Program
-    {
 
+    static class Program
+    {
+        [STAThread]
         static void Main()
         {
-            FormTest2 form = new FormTest2();
-            form.ShowDialog();
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+
+            FrmLogin frmLogin = new FrmLogin(); 
+            DialogResult frmLoginDialogResult = frmLogin.ShowDialog();
+
+            if(frmLoginDialogResult == DialogResult.OK)
+            {
+                Application.Run(new FrmMain());
+
+            }
         }
     }
 }

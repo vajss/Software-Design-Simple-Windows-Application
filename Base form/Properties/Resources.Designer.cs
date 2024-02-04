@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Base_form.Properties
+namespace ClientUI.Properties
 {
 
 
