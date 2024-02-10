@@ -5,13 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataSource
+namespace DataProviders
 {
-    public class UserDataSource
+    public class UserDataProvider
     {
         private List<User> users = new List<User>();
 
-        public UserDataSource() {
+        public UserDataProvider() {
             users.Add(new User {
                 Id = 1,
                 LastName = "Aleksic",

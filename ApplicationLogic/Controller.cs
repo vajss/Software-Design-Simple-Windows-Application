@@ -1,4 +1,4 @@
-﻿using DataSource;
+﻿using DataProviders;
 using Domain;
 using System;
 using System.Collections.Generic;
@@ -25,7 +25,7 @@ namespace ApplicationLogic
 
         public User CurrentUser { get; private set; }
 
-        UserDataSource userDataSource = new UserDataSource();
+        UserDataProvider userDataSource = new UserDataProvider();
 
         public User LoginUser(User loginUser)
         {

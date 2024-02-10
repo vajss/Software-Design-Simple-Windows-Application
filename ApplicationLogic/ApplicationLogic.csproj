@@ -45,9 +45,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DataSource\DataSource.csproj">
+    <ProjectReference Include="..\DataSource\DataProviders.csproj">
       <Project>{D0686F47-F6CB-468E-B44B-8C7E180A807B}</Project>
-      <Name>DataSource</Name>
+      <Name>DataProviders</Name>
     </ProjectReference>
     <ProjectReference Include="..\Domain\Domain.csproj">
       <Project>{67588734-6B13-4467-9037-A108F57117C7}</Project>

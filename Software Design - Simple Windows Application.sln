@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientUI", "Base form\Clien
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{67588734-6B13-4467-9037-A108F57117C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataSource", "DataSource\DataSource.csproj", "{D0686F47-F6CB-468E-B44B-8C7E180A807B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataProviders", "DataSource\DataProviders.csproj", "{D0686F47-F6CB-468E-B44B-8C7E180A807B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApplicationLogic", "ApplicationLogic\ApplicationLogic.csproj", "{87F906CA-8B96-4734-AA15-54A831CE16AB}"
 EndProject
