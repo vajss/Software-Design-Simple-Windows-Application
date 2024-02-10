@@ -1,4 +1,5 @@
 ﻿using Base_form;
+using Base_form.UserControls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,8 +21,9 @@ namespace MainFormUI
 
         private void addProductToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmAddProduct frmAddProduct = new FrmAddProduct();
-            frmAddProduct.ShowDialog();
+            UCAddProduct uCAddProduct = new UCAddProduct();
+            uCAddProduct.Dock = DockStyle.Fill;
+            pnlMain.Controls.Add(uCAddProduct);
         }
     }
 }
