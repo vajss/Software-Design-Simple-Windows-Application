@@ -35,6 +35,7 @@
             this.lblPassword = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnLogin = new System.Windows.Forms.Button();
+            this.lblUserNotFound = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -55,6 +56,7 @@
             this.tbUsername.Name = "tbUsername";
             this.tbUsername.Size = new System.Drawing.Size(157, 20);
             this.tbUsername.TabIndex = 1;
+            this.tbUsername.TextChanged += new System.EventHandler(this.tbUsername_TextChanged);
             // 
             // panel1
             // 
@@ -74,6 +76,7 @@
             this.tbPassword.PasswordChar = '*';
             this.tbPassword.Size = new System.Drawing.Size(157, 20);
             this.tbPassword.TabIndex = 1;
+            this.tbPassword.TextChanged += new System.EventHandler(this.tbPassword_TextChanged);
             // 
             // lblPassword
             // 
@@ -96,6 +99,7 @@
             // 
             // btnLogin
             // 
+            this.btnLogin.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnLogin.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.ForeColor = System.Drawing.Color.White;
@@ -107,11 +111,24 @@
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.BtnLogin_Click);
             // 
+            // lblUserNotFound
+            // 
+            this.lblUserNotFound.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblUserNotFound.AutoSize = true;
+            this.lblUserNotFound.ForeColor = System.Drawing.Color.IndianRed;
+            this.lblUserNotFound.Location = new System.Drawing.Point(210, 158);
+            this.lblUserNotFound.Name = "lblUserNotFound";
+            this.lblUserNotFound.Size = new System.Drawing.Size(77, 13);
+            this.lblUserNotFound.TabIndex = 7;
+            this.lblUserNotFound.Text = "User not found";
+            this.lblUserNotFound.Visible = false;
+            // 
             // FrmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(496, 361);
+            this.Controls.Add(this.lblUserNotFound);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -123,6 +140,7 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -135,5 +153,6 @@
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnLogin;
+        private System.Windows.Forms.Label lblUserNotFound;
     }
 }

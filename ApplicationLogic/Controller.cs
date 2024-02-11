@@ -37,7 +37,7 @@ namespace ApplicationLogic
             List<User> users = userDataSource.GetUsers();
             foreach (User user in users)
             {
-                if(user.Username == loginUser.Username && user.Password == user.Password)
+                if(user.Username == loginUser.Username && user.Password == loginUser.Password)
                 {
                     CurrentUser = user;
                     return user;

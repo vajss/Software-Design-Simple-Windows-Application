@@ -15,11 +15,11 @@ namespace ClientUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Console.WriteLine(">>>>>new frm?");
 
             FrmLogin frmLogin = new FrmLogin(); 
             DialogResult frmLoginDialogResult = frmLogin.ShowDialog();
-            Console.WriteLine(">>>>> kada se ovo desi?");
+            frmLogin.Dispose();
+
             if(frmLoginDialogResult == DialogResult.OK)
             {
                 FrmMain frmMain = new FrmMain();

@@ -23,9 +23,11 @@ namespace ClientUI
 
         private void BtnLogin_Click(object sender, EventArgs e)
         {
-            Controller userController = Controller.Instance;
 
             if (btnLogin.Enabled) {
+
+                Controller userController = Controller.Instance;
+
                 User user = new User
                 {
                     Username = tbUsername.Text,
@@ -33,11 +35,58 @@ namespace ClientUI
                 };
 
                 // TODO add validation and red stuff to indicate wrong, also exeption handling if null is provided
-                User currentUser = userController.LoginUser(user);
-                if (currentUser != null)
-                {
-                    this.DialogResult = DialogResult.OK; // This closes form and return assigned value to whatewer is listening for showDialog 
+                if(user.Username == "") {
+                    tbUsername.BackColor = Color.Salmon;
+                    return;
                 }
+
+                if (user.Password == "") {
+                    tbPassword.BackColor = Color.Salmon;
+                    return;
+                }
+
+                try {
+
+                    User currentUser = userController.LoginUser(user);
+                    if (currentUser != null)
+                    {
+                        this.DialogResult = DialogResult.OK; // This closes form and return assigned value to whatewer is listening for showDialog 
+                    }
+                    else
+                    {
+                        lblUserNotFound.Visible = true;
+                    }
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Error happened while tryingh to log in.");
+                }
+
+            }
+        }
+
+        private void tbUsername_TextChanged(object sender, EventArgs e)
+        {
+            if (tbUsername.BackColor != Color.White)
+            {
+                tbUsername.BackColor = Color.White;
+                lblUserNotFound.Visible = false;
+            }
+            if (lblUserNotFound.Visible)
+            {
+                lblUserNotFound.Visible = false;
+            }
+        }
+
+        private void tbPassword_TextChanged(object sender, EventArgs e)
+        {
+            if (tbPassword.BackColor != Color.White)
+            {
+                tbPassword.BackColor = Color.White;
+            }
+            if(lblUserNotFound.Visible)
+            {
+                lblUserNotFound.Visible = false;
             }
         }
     }
