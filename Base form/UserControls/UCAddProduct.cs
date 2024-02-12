@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ApplicationLogic;
+using Domain;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,22 +23,43 @@ namespace Base_form.UserControls
 
         private void setManufacturers()
         {
-            cbManufacturer.DataSource = new string[] { "Kg", "Meter", "Liters" };
-            cbManufacturer.SelectedItem = null;
+            cbMeasurementUnit.DataSource = Enum.GetValues(typeof(MeasurementUnit));
+            cbMeasurementUnit.SelectedItem = null;
         }
 
         private void setMeasurementUnits()
         {
-            cbMeasurementUnit.DataSource = new string[] { "Delta", "Dehlhaze", "Lidl" };
-            cbMeasurementUnit.SelectedItem = null;
+            cbManufacturer.DataSource = Controller.Instance.GetManufactures();
+            cbManufacturer.SelectedItem = null;
         }
 
-        private void cbMeasurementUnit_SelectedIndexChanged(object sender, EventArgs e)
+
+        private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (cbMeasurementUnit.SelectedItem != null)
+            // TODO add validation for this
+            if (
+                tbName.Text == ""
+                || tbDescription.Text == ""
+                || cbMeasurementUnit.SelectedItem == null
+                || cbManufacturer.SelectedItem == null
+                || !double.TryParse(tbPrice.Text, out _)
+                || !int.TryParse(tbId.Text, out _)
+                )
             {
-                string cbMeascbMeasurementUnit = cbMeasurementUnit.SelectedItem.ToString();
+                lblRequired.Visible = true; // TODO update message to indicate wrong walue
+                return;
             }
+            Product newProduct = new Product();
+
+            newProduct.Id = int.Parse(tbId.Text);
+            newProduct.Name = tbName.Text;
+            newProduct.Description = tbDescription.Text;
+            newProduct.Price = Double.Parse(tbPrice.Text);
+            newProduct.MeasurementUnit = (MeasurementUnit)cbMeasurementUnit.SelectedItem;
+            newProduct.Manufacturer = (Manufacturer)cbManufacturer.SelectedItem;
+            
+
+            Controller.Instance.addProduct(newProduct);
         }
     }
 }

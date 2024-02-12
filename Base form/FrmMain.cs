@@ -21,9 +21,18 @@ namespace MainFormUI
 
         private void addProductToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            pnlMain.Controls.Clear();
             UCAddProduct uCAddProduct = new UCAddProduct();
             uCAddProduct.Dock = DockStyle.Fill;
             pnlMain.Controls.Add(uCAddProduct);
+        }
+
+        private void allProductsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pnlMain.Controls.Clear();
+            UCProducts uCProduct = new UCProducts();
+            uCProduct.Dock = DockStyle.Fill;
+            pnlMain.Controls.Add(uCProduct);
         }
     }
 }

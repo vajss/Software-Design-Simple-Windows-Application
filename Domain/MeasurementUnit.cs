@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain
 {
-    internal enum MeasurementUnit
+    public enum MeasurementUnit
     {
         kg,
         g,

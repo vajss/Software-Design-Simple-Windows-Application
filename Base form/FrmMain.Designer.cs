@@ -32,6 +32,7 @@
             this.productToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addProductToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlMain = new System.Windows.Forms.Panel();
+            this.allProductsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,7 +49,8 @@
             // productToolStripMenuItem
             // 
             this.productToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addProductToolStripMenuItem});
+            this.addProductToolStripMenuItem,
+            this.allProductsToolStripMenuItem});
             this.productToolStripMenuItem.Name = "productToolStripMenuItem";
             this.productToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.productToolStripMenuItem.Text = "Product";
@@ -56,7 +58,7 @@
             // addProductToolStripMenuItem
             // 
             this.addProductToolStripMenuItem.Name = "addProductToolStripMenuItem";
-            this.addProductToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.addProductToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.addProductToolStripMenuItem.Text = "Add product";
             this.addProductToolStripMenuItem.Click += new System.EventHandler(this.addProductToolStripMenuItem_Click);
             // 
@@ -67,6 +69,13 @@
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(800, 418);
             this.pnlMain.TabIndex = 1;
+            // 
+            // allProductsToolStripMenuItem
+            // 
+            this.allProductsToolStripMenuItem.Name = "allProductsToolStripMenuItem";
+            this.allProductsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.allProductsToolStripMenuItem.Text = "All products";
+            this.allProductsToolStripMenuItem.Click += new System.EventHandler(this.allProductsToolStripMenuItem_Click);
             // 
             // FrmMain
             // 
@@ -91,5 +100,6 @@
         private System.Windows.Forms.ToolStripMenuItem productToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addProductToolStripMenuItem;
         private System.Windows.Forms.Panel pnlMain;
+        private System.Windows.Forms.ToolStripMenuItem allProductsToolStripMenuItem;
     }
 }

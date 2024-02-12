@@ -6,9 +6,14 @@ using System.Threading.Tasks;
 
 namespace Domain
 {
-    internal class Manufacturer
+    public class Manufacturer
     {
         public int Id { get; set; }
-        public int Name { get; set; }
+        public string Name { get; set; }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

@@ -41,6 +41,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cbMeasurementUnit = new System.Windows.Forms.ComboBox();
             this.lblMeasurementUnit = new System.Windows.Forms.Label();
+            this.lblRequired = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnAdd
@@ -52,6 +53,7 @@
             this.btnAdd.TabIndex = 38;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // tbPrice
             // 
@@ -163,11 +165,25 @@
             this.lblMeasurementUnit.TabIndex = 26;
             this.lblMeasurementUnit.Text = "Measurement unit:";
             // 
+            // lblRequired
+            // 
+            this.lblRequired.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblRequired.AutoSize = true;
+            this.lblRequired.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.lblRequired.Location = new System.Drawing.Point(206, 346);
+            this.lblRequired.Name = "lblRequired";
+            this.lblRequired.Size = new System.Drawing.Size(104, 13);
+            this.lblRequired.TabIndex = 39;
+            this.lblRequired.Text = "All fields are required";
+            this.lblRequired.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblRequired.Visible = false;
+            // 
             // UCAddProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.Controls.Add(this.lblRequired);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.tbPrice);
             this.Controls.Add(this.label5);
@@ -203,5 +219,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbMeasurementUnit;
         private System.Windows.Forms.Label lblMeasurementUnit;
+        private System.Windows.Forms.Label lblRequired;
     }
 }

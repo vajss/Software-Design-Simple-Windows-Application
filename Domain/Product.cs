@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Domain
 {
-    internal class Product
+    public class Product
     {
         public int Id { get; set; }
-        public int Name { get; set; }
+        public string Name { get; set; }
         public string Description { get; set; }
         public double Price { get; set; }
-        public Manufacturer Manufacturer { get; set; }
         public MeasurementUnit MeasurementUnit { get; set; }
+        public Manufacturer Manufacturer { get; set; }
 
     }
 }
