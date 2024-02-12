@@ -1,4 +1,5 @@
-﻿using Domain;
+﻿using DatabaseBroker;
+using Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,17 +10,25 @@ namespace DataSource
 {
     public class ProductDataProvider
     {
-        List<Product> Products = new List<Product>();
         public ProductDataProvider() { }
 
         public List<Product> GetAllProducts()
         {
-            return Products;
+            Broker broker = new Broker();
+            broker.OpenConnection();
+
+            try {
+                return broker.GetAllProducts(); 
+            } 
+            finally {
+                broker.CloseConnection();
+            }
+
         }
 
         public void AddProduct(Product newProduct)
         {
-            Products.Add(newProduct);
+            //Products.Add(newProduct);
         }
 
 

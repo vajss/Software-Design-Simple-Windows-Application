@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D0686F47-F6CB-468E-B44B-8C7E180A807B}</ProjectGuid>
+    <ProjectGuid>{D42653DA-6341-4026-BAB0-E6EF34951034}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DataSource</RootNamespace>
-    <AssemblyName>DataSource</AssemblyName>
+    <RootNamespace>DatabaseBroker</RootNamespace>
+    <AssemblyName>DatabaseBroker</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,16 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ManufacturerDataProvider.cs" />
-    <Compile Include="ProductDataProvider.cs" />
-    <Compile Include="UserDataProvider.cs" />
+    <Compile Include="Broker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DatabaseBroker\DatabaseBroker.csproj">
-      <Project>{D42653DA-6341-4026-BAB0-E6EF34951034}</Project>
-      <Name>DatabaseBroker</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Domain\Domain.csproj">
       <Project>{67588734-6B13-4467-9037-A108F57117C7}</Project>
       <Name>Domain</Name>
