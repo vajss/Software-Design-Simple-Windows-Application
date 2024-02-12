@@ -28,7 +28,17 @@ namespace DataSource
 
         public void AddProduct(Product newProduct)
         {
-            //Products.Add(newProduct);
+            Broker broker = new Broker();
+            broker.OpenConnection();
+
+            try
+            {
+                broker.AddProduct(newProduct);
+            }
+            finally 
+            {
+                broker.CloseConnection();
+            }
         }
 
 
