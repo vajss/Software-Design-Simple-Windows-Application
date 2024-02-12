@@ -18,10 +18,12 @@ namespace ClientUI
 
             FrmLogin frmLogin = new FrmLogin(); 
             DialogResult frmLoginDialogResult = frmLogin.ShowDialog();
+            frmLogin.Dispose();
 
             if(frmLoginDialogResult == DialogResult.OK)
             {
-                Application.Run(new FrmMain());
+                FrmMain frmMain = new FrmMain();
+                Application.Run(frmMain);
 
             }
         }
