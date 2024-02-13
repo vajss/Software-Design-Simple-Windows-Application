@@ -25,12 +25,14 @@ namespace Base_form.UserControls
         {
             cbMeasurementUnit.DataSource = Enum.GetValues(typeof(MeasurementUnit));
             cbMeasurementUnit.SelectedItem = null;
+            cbMeasurementUnit.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private void setMeasurementUnits()
         {
             cbManufacturer.DataSource = Controller.Instance.GetManufactures();
             cbManufacturer.SelectedItem = null;
+            cbManufacturer.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
 

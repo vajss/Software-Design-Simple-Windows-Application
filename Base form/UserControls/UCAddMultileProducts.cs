@@ -64,9 +64,8 @@ namespace Base_form.UserControls
             foreach (DataGridViewRow row in dgvMultipleProducts.SelectedRows)
             {
                 Product product = (Product)row.DataBoundItem;
-                productsInTable.Remove(product);
+                productsInTable.Remove(product); // has to have overriden equals
             }
-            
         }
     }
 }

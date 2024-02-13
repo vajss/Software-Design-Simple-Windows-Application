@@ -12,5 +12,9 @@ namespace Domain
         public Product Product { get; set; }
         public int Quantity { get; set; }
         public double Amount { get; set; }
+        public override bool Equals(object obj)
+        {
+            return base.Equals(obj);
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Domain
 {
@@ -6,7 +7,8 @@ namespace Domain
     {
         public int InvoiceId { get; set; }
         public User User { get; set; }
-        public DateTime Date { get; set; }
+        public long Date { get; set; }
         public double Total { get; set; }
+        public List<InvoiceItem> InvoiceItems { get; set; }
     }
 }

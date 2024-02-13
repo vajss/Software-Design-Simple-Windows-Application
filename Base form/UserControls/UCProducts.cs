@@ -18,10 +18,22 @@ namespace Base_form.UserControls
         public UCProducts()
         {
             InitializeComponent();
-            dgvProducts.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.Fill);
-            dgvProducts.DataSource = Controller.Instance.GetAllProducts();
+            this.setGridSettings();
+            this.setCbSettings();
             this.SetMeasurementUnits();
             this.SetManufacturers();
+        }
+
+        private void setGridSettings()
+        {
+            dgvProducts.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.Fill);
+            dgvProducts.DataSource = Controller.Instance.GetAllProducts();
+        }
+
+        private void setCbSettings()
+        {
+            cbManufacturer.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbMeasurementUnit.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private void SetManufacturers()

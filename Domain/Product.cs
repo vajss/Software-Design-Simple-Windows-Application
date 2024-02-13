@@ -16,5 +16,9 @@ namespace Domain
         public Manufacturer Manufacturer { get; set; }
         public DateTime DateCreated { get; set;}
 
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }
