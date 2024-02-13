@@ -139,5 +139,28 @@ namespace DatabaseBroker
             int rowsAdded = command.ExecuteNonQuery();
             return rowsAdded;
         }
+
+        public List<User> GetAllUsers()
+        {
+            List<User> user = new List<User>();
+            string query = "SELECT * FROM users";
+            SqlCommand command = new SqlCommand(query, connection);
+            using (SqlDataReader reader = command.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    User manufacturer = new User()
+                    {
+                        Id = reader.GetInt32(0),
+                        Name = reader.GetString(1),
+                        LastName = reader.GetString(2),
+                        Username = reader.GetString(3),
+                        Password = reader.GetString(4),
+                    };
+                    user.Add(manufacturer);
+                }
+            }
+            return user;
+        }
     }
 }

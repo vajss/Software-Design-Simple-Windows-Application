@@ -34,13 +34,16 @@
             this.allProductsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlMain = new System.Windows.Forms.Panel();
             this.addMultipleProductsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.invoiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addInvoiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.productToolStripMenuItem});
+            this.productToolStripMenuItem,
+            this.invoiceToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1040, 24);
@@ -88,6 +91,21 @@
             this.addMultipleProductsToolStripMenuItem.Text = "Add multiple products";
             this.addMultipleProductsToolStripMenuItem.Click += new System.EventHandler(this.addMultipleProductsToolStripMenuItem_Click);
             // 
+            // invoiceToolStripMenuItem
+            // 
+            this.invoiceToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addInvoiceToolStripMenuItem});
+            this.invoiceToolStripMenuItem.Name = "invoiceToolStripMenuItem";
+            this.invoiceToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
+            this.invoiceToolStripMenuItem.Text = "Invoice";
+            // 
+            // addInvoiceToolStripMenuItem
+            // 
+            this.addInvoiceToolStripMenuItem.Name = "addInvoiceToolStripMenuItem";
+            this.addInvoiceToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addInvoiceToolStripMenuItem.Text = "Add invoice";
+            this.addInvoiceToolStripMenuItem.Click += new System.EventHandler(this.addInvoiceToolStripMenuItem_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -113,5 +131,7 @@
         private System.Windows.Forms.Panel pnlMain;
         private System.Windows.Forms.ToolStripMenuItem allProductsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addMultipleProductsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem invoiceToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addInvoiceToolStripMenuItem;
     }
 }

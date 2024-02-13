@@ -17,30 +17,34 @@ namespace MainFormUI
         public FrmMain()
         {
             InitializeComponent();
+            ChangePanel(new UCProducts());
+        }
+
+        private void ChangePanel(UserControl control)
+        {
+            pnlMain.Controls.Clear();
+            control.Dock = DockStyle.Fill;
+            pnlMain.Controls.Add(control);
         }
 
         private void addProductToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            pnlMain.Controls.Clear();
-            UCAddProduct uCAddProduct = new UCAddProduct();
-            uCAddProduct.Dock = DockStyle.Fill;
-            pnlMain.Controls.Add(uCAddProduct);
+            ChangePanel(new UCAddProduct());
         }
 
         private void allProductsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            pnlMain.Controls.Clear();
-            UCProducts uCProduct = new UCProducts();
-            uCProduct.Dock = DockStyle.Fill;
-            pnlMain.Controls.Add(uCProduct);
+            ChangePanel(new UCProducts());
         }
 
         private void addMultipleProductsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            pnlMain.Controls.Clear();
-            UCAddMultileProducts uCAddMultileProducts = new UCAddMultileProducts();
-            uCAddMultileProducts.Dock = DockStyle.Fill;
-            pnlMain.Controls.Add(uCAddMultileProducts);
+            ChangePanel(new UCAddMultileProducts());
+        }
+
+        private void addInvoiceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ChangePanel(new UCInvoice());
         }
     }
 }

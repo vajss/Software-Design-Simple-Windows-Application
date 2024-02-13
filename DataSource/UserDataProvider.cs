@@ -1,4 +1,5 @@
-﻿using Domain;
+﻿using DatabaseBroker;
+using Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,29 +10,20 @@ namespace DataProviders
 {
     public class UserDataProvider
     {
-        private List<User> users = new List<User>();
-
-        public UserDataProvider() {
-            users.Add(new User {
-                Id = 1,
-                LastName = "Aleksic",
-                Name = "Vasilije",
-                Username = "Vajss",
-                Password = "TestPass",
-            });
-
-            users.Add(new User{
-                Id = 2,
-                LastName = "Ciskela",
-                Name = "Ejilisav",
-                Username = "Ssjav",
-                Password = "TestPass",
-            });
-        }
+        public UserDataProvider() {}
 
         public List<User> GetUsers()
         {
-            return users;
+            Broker broker = new Broker();
+            try
+            {
+                broker.OpenConnection();
+                return broker.GetAllUsers();
+            }
+            finally
+            {
+                broker.CloseConnection();
+            }
         }
     }
 }
