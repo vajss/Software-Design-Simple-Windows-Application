@@ -10,11 +10,11 @@ namespace DataSource
 {
     public class ProductDataProvider
     {
+        Broker broker = new Broker();
         public ProductDataProvider() { }
 
         public List<Product> GetAllProducts()
         {
-            Broker broker = new Broker();
             broker.OpenConnection();
 
             try {
@@ -28,7 +28,6 @@ namespace DataSource
 
         public void AddProduct(Product newProduct)
         {
-            Broker broker = new Broker();
             broker.OpenConnection();
 
             try
@@ -41,6 +40,41 @@ namespace DataSource
             }
         }
 
+        public void AddMultipleProduct(List<Product> products)
+        {
+            broker.OpenConnection();
+            broker.BeginTransaction();
+            try
+            {
+                foreach (Product product in products)
+                {
+                    broker.AddProduct(product);
+                }
+                broker.Commit();
+            }
+            catch (Exception)
+            {
+                broker.Rollback();
+                throw;
+            }
+            finally
+            {
+                broker.CloseConnection();
+            }
+        }
 
+        public void UpdateProduct(Product newProduct)
+        {
+            broker.OpenConnection();
+
+            try
+            {
+                broker.UpdateProduct(newProduct);
+            }
+            finally
+            {
+                broker.CloseConnection();
+            }
+        }
     }
 }

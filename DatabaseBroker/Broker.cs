@@ -12,7 +12,7 @@ namespace DatabaseBroker
     public class Broker
     {
         SqlConnection connection;
-
+        SqlTransaction transaction;
 
         public Broker()
         {
@@ -30,6 +30,21 @@ namespace DatabaseBroker
             {
                 connection.Close();
             }
+        }
+
+        public void BeginTransaction()
+        {
+            transaction = connection.BeginTransaction();
+        }
+
+        public void Commit()
+        {
+            transaction.Commit();
+        }
+
+        public void Rollback()
+        {
+            transaction?.Rollback();
         }
 
         public List<Product> GetAllProducts()
@@ -71,13 +86,13 @@ namespace DatabaseBroker
         {
             string query =
                 "INSERT INTO products " +
-                $"VALUES(@pId, @pName ,@pDesc, @pPrice, @pUnit, @pManufacturerId, @pDateCreated)";
-            SqlCommand command = new SqlCommand(query, connection);
-            command.Parameters.AddWithValue("@pId", product.Id);
+                $"VALUES(@pName ,@pDesc, @pPrice, @pUnit, @pManufacturerId, @pDateCreated)";
+            SqlCommand command = new SqlCommand(query, connection, transaction);
+
             command.Parameters.AddWithValue("@pName", product.Name);
             command.Parameters.AddWithValue("@pDesc", product.Description);
             command.Parameters.AddWithValue("@pPrice", product.Price);
-            command.Parameters.AddWithValue("@pUnit", (int)product.MeasurementUnit);
+            command.Parameters.AddWithValue("@pUnit", product.MeasurementUnit);
             command.Parameters.AddWithValue("@pManufacturerId", product.Manufacturer.Id);
             command.Parameters.AddWithValue("@pDateCreated", ((DateTimeOffset)DateTime.UtcNow).ToUnixTimeSeconds());
 
@@ -103,6 +118,26 @@ namespace DatabaseBroker
                 }
             }
             return manufacturers;
+        }
+
+        public int UpdateProduct(Product product)
+        {
+            string query =
+                "UPDATE products " +
+                $"SET Name = @pName, description = @pDesc, price = @pPrice, MeasurementUnit = @pUnit, manufacturerId = @pManufacturerId " +
+                $"WHERE id = @pId";
+            SqlCommand command = new SqlCommand(query, connection, transaction);
+
+            command.Parameters.AddWithValue("@pId", product.Id);
+            command.Parameters.AddWithValue("@pName", product.Name);
+            command.Parameters.AddWithValue("@pDesc", product.Description);
+            command.Parameters.AddWithValue("@pPrice", product.Price);
+            command.Parameters.AddWithValue("@pUnit", product.MeasurementUnit);
+            command.Parameters.AddWithValue("@pManufacturerId", product.Manufacturer.Id);
+            command.Parameters.AddWithValue("@pDateCreated", ((DateTimeOffset)DateTime.UtcNow).ToUnixTimeSeconds());
+
+            int rowsAdded = command.ExecuteNonQuery();
+            return rowsAdded;
         }
     }
 }

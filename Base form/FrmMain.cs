@@ -34,5 +34,13 @@ namespace MainFormUI
             uCProduct.Dock = DockStyle.Fill;
             pnlMain.Controls.Add(uCProduct);
         }
+
+        private void addMultipleProductsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pnlMain.Controls.Clear();
+            UCAddMultileProducts uCAddMultileProducts = new UCAddMultileProducts();
+            uCAddMultileProducts.Dock = DockStyle.Fill;
+            pnlMain.Controls.Add(uCAddMultileProducts);
+        }
     }
 }

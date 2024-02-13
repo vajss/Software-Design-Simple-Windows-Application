@@ -31,8 +31,9 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.productToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addProductToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pnlMain = new System.Windows.Forms.Panel();
             this.allProductsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pnlMain = new System.Windows.Forms.Panel();
+            this.addMultipleProductsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -42,7 +43,7 @@
             this.productToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1040, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -50,7 +51,8 @@
             // 
             this.productToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addProductToolStripMenuItem,
-            this.allProductsToolStripMenuItem});
+            this.allProductsToolStripMenuItem,
+            this.addMultipleProductsToolStripMenuItem});
             this.productToolStripMenuItem.Name = "productToolStripMenuItem";
             this.productToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.productToolStripMenuItem.Text = "Product";
@@ -58,30 +60,39 @@
             // addProductToolStripMenuItem
             // 
             this.addProductToolStripMenuItem.Name = "addProductToolStripMenuItem";
-            this.addProductToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addProductToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
             this.addProductToolStripMenuItem.Text = "Add product";
             this.addProductToolStripMenuItem.Click += new System.EventHandler(this.addProductToolStripMenuItem_Click);
-            // 
-            // pnlMain
-            // 
-            this.pnlMain.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pnlMain.Location = new System.Drawing.Point(0, 20);
-            this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(800, 418);
-            this.pnlMain.TabIndex = 1;
             // 
             // allProductsToolStripMenuItem
             // 
             this.allProductsToolStripMenuItem.Name = "allProductsToolStripMenuItem";
-            this.allProductsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.allProductsToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
             this.allProductsToolStripMenuItem.Text = "All products";
             this.allProductsToolStripMenuItem.Click += new System.EventHandler(this.allProductsToolStripMenuItem_Click);
+            // 
+            // pnlMain
+            // 
+            this.pnlMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlMain.Location = new System.Drawing.Point(0, 20);
+            this.pnlMain.Name = "pnlMain";
+            this.pnlMain.Size = new System.Drawing.Size(1040, 501);
+            this.pnlMain.TabIndex = 1;
+            // 
+            // addMultipleProductsToolStripMenuItem
+            // 
+            this.addMultipleProductsToolStripMenuItem.Name = "addMultipleProductsToolStripMenuItem";
+            this.addMultipleProductsToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.addMultipleProductsToolStripMenuItem.Text = "Add multiple products";
+            this.addMultipleProductsToolStripMenuItem.Click += new System.EventHandler(this.addMultipleProductsToolStripMenuItem_Click);
             // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1040, 533);
             this.Controls.Add(this.pnlMain);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -101,5 +112,6 @@
         private System.Windows.Forms.ToolStripMenuItem addProductToolStripMenuItem;
         private System.Windows.Forms.Panel pnlMain;
         private System.Windows.Forms.ToolStripMenuItem allProductsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addMultipleProductsToolStripMenuItem;
     }
 }
