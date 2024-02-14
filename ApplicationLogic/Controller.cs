@@ -1,5 +1,6 @@
 ﻿using DataProviders;
 using DataSource;
+using DataSource.DatabaseRepository;
 using Domain;
 using System;
 using System.Collections.Generic;
@@ -30,7 +31,7 @@ namespace ApplicationLogic
         UserDataProvider userDataProvider = new UserDataProvider();
         ProductDataProvider productDataProvider = new ProductDataProvider();
         ManufacturerDataProvider manufacturerDataProvider = new ManufacturerDataProvider();
-
+        IRepository<Invoice> invoiceDataProvider = new InvoiceDataProvider();
 
         public User LoginUser(User loginUser)
         {
@@ -52,9 +53,19 @@ namespace ApplicationLogic
             return null;
         }
 
-        public void addProduct(Product newProduct)
+        public void AddProduct(Product newProduct)
         {
             productDataProvider.AddProduct(newProduct);
+        }
+
+        public void UpdateProduct(Product newProduct)
+        {
+            productDataProvider.UpdateProduct(newProduct);
+        }
+
+        public void AddMultipleProduct(List<Product> products)
+        {
+            productDataProvider.AddMultipleProduct(products);
         }
 
         public List<Manufacturer> GetManufactures()
@@ -65,6 +76,16 @@ namespace ApplicationLogic
         public List<Product> GetAllProducts()
         {
             return productDataProvider.GetAllProducts();
+        }
+
+        public Array GetMeasurementUnits()
+        {
+            return Enum.GetValues(typeof(MeasurementUnit));
+        }
+
+        public void SaveInvoice(Invoice invoice)
+        {
+            invoiceDataProvider.Save(invoice);
         }
     }
 }

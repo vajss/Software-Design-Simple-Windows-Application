@@ -14,6 +14,11 @@ namespace Domain
         public double Price { get; set; }
         public MeasurementUnit MeasurementUnit { get; set; }
         public Manufacturer Manufacturer { get; set; }
+        public DateTime DateCreated { get; set;}
 
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

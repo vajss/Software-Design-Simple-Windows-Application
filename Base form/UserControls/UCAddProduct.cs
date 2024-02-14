@@ -25,12 +25,14 @@ namespace Base_form.UserControls
         {
             cbMeasurementUnit.DataSource = Enum.GetValues(typeof(MeasurementUnit));
             cbMeasurementUnit.SelectedItem = null;
+            cbMeasurementUnit.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private void setMeasurementUnits()
         {
             cbManufacturer.DataSource = Controller.Instance.GetManufactures();
             cbManufacturer.SelectedItem = null;
+            cbManufacturer.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
 
@@ -43,7 +45,6 @@ namespace Base_form.UserControls
                 || cbMeasurementUnit.SelectedItem == null
                 || cbManufacturer.SelectedItem == null
                 || !double.TryParse(tbPrice.Text, out _)
-                || !int.TryParse(tbId.Text, out _)
                 )
             {
                 lblRequired.Visible = true; // TODO update message to indicate wrong walue
@@ -51,7 +52,6 @@ namespace Base_form.UserControls
             }
             Product newProduct = new Product();
 
-            newProduct.Id = int.Parse(tbId.Text);
             newProduct.Name = tbName.Text;
             newProduct.Description = tbDescription.Text;
             newProduct.Price = Double.Parse(tbPrice.Text);
@@ -59,7 +59,7 @@ namespace Base_form.UserControls
             newProduct.Manufacturer = (Manufacturer)cbManufacturer.SelectedItem;
             
 
-            Controller.Instance.addProduct(newProduct);
+            Controller.Instance.AddProduct(newProduct);
         }
     }
 }

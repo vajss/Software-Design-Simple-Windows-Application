@@ -8,10 +8,10 @@ namespace Domain
 {
     public enum MeasurementUnit
     {
-        kg,
-        g,
-        m,
-        l,
-        unit
+        kg = 0,
+        g = 1,
+        m = 2,
+        l = 3,
+        unit = 4
     }
 }

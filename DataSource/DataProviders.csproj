@@ -41,12 +41,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DatabaseRepository\IRepository.cs" />
+    <Compile Include="InvoiceDataProvider .cs" />
     <Compile Include="ManufacturerDataProvider.cs" />
     <Compile Include="ProductDataProvider.cs" />
     <Compile Include="UserDataProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DatabaseBroker\DatabaseBroker.csproj">
+      <Project>{D42653DA-6341-4026-BAB0-E6EF34951034}</Project>
+      <Name>DatabaseBroker</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Domain\Domain.csproj">
       <Project>{67588734-6B13-4467-9037-A108F57117C7}</Project>
       <Name>Domain</Name>
