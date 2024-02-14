@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DatabaseRepository\IRepository.cs" />
+    <Compile Include="InvoiceDataProvider .cs" />
     <Compile Include="ManufacturerDataProvider.cs" />
     <Compile Include="ProductDataProvider.cs" />
     <Compile Include="UserDataProvider.cs" />

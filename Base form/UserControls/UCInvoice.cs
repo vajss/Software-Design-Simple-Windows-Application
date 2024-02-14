@@ -164,7 +164,7 @@ namespace Base_form.UserControls
                 Total = GetTotal(),
             };
 
-            // TODO controler save it
+            Controller.Instance.SaveInvoice(invoice);
         }
 
         private bool ValidateInvoice()

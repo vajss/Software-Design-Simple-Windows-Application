@@ -1,5 +1,6 @@
 ﻿using DataProviders;
 using DataSource;
+using DataSource.DatabaseRepository;
 using Domain;
 using System;
 using System.Collections.Generic;
@@ -30,7 +31,7 @@ namespace ApplicationLogic
         UserDataProvider userDataProvider = new UserDataProvider();
         ProductDataProvider productDataProvider = new ProductDataProvider();
         ManufacturerDataProvider manufacturerDataProvider = new ManufacturerDataProvider();
-
+        IRepository<Invoice> invoiceDataProvider = new InvoiceDataProvider();
 
         public User LoginUser(User loginUser)
         {
@@ -82,5 +83,9 @@ namespace ApplicationLogic
             return Enum.GetValues(typeof(MeasurementUnit));
         }
 
+        public void SaveInvoice(Invoice invoice)
+        {
+            invoiceDataProvider.Save(invoice);
+        }
     }
 }

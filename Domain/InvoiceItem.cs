@@ -8,6 +8,7 @@ namespace Domain
 {
     public class InvoiceItem
     {
+        public int InvoiceId { get; set; }
         public int Sn { get; set; }
         public Product Product { get; set; }
         public int Quantity { get; set; }

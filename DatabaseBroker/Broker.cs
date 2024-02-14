@@ -162,5 +162,35 @@ namespace DatabaseBroker
             }
             return user;
         }
+
+        public int AddInvoice(Invoice invoice)
+        {
+            string query =
+                "INSERT INTO invoices output INSERTED.ID " +
+                $"VALUES(@iUser, @iDate, @iTotal)";
+            SqlCommand command = new SqlCommand(query, connection, transaction);
+
+            command.Parameters.AddWithValue("@iUser", invoice.User.Id);
+            command.Parameters.AddWithValue("@iDate", invoice.Date);
+            command.Parameters.AddWithValue("@iTotal", invoice.Total);
+
+            return (int)command.ExecuteScalar();
+        }
+
+        public void AddInvoiceItem(InvoiceItem invoiceItem)
+        {
+            string query =
+                "INSERT INTO invoiceItems " +
+                $"VALUES(@iInvoiceId ,@iSerialNumber, @iProductId, @iQuantity, @iAmoount)";
+            SqlCommand command = new SqlCommand(query, connection, transaction);
+
+            command.Parameters.AddWithValue("@iInvoiceId", invoiceItem.InvoiceId);
+            command.Parameters.AddWithValue("@iSerialNumber", invoiceItem.Sn);
+            command.Parameters.AddWithValue("@iProductId", invoiceItem.Product.Id);
+            command.Parameters.AddWithValue("@iQuantity", invoiceItem.Quantity);
+            command.Parameters.AddWithValue("@iAmoount", invoiceItem.Amount);
+
+            command.ExecuteNonQuery();
+        }
     }
 }
