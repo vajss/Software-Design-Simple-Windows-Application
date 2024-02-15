@@ -1,11 +1,16 @@
-﻿using Base_form;
+﻿using ApplicationLogic;
+using Base_form;
+using Base_form.ServerCommunication;
 using Base_form.UserControls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -18,6 +23,7 @@ namespace MainFormUI
         {
             InitializeComponent();
             ChangePanel(new UCProducts());
+            this.Text = $"Welcome {Controller.Instance.CurrentUser.Name}";
         }
 
         private void ChangePanel(UserControl control)
@@ -45,6 +51,18 @@ namespace MainFormUI
         private void addInvoiceToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ChangePanel(new UCInvoice());
+        }
+
+        private void FrmMain_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            try
+            {
+                Communication.Instance.Close();
+            }
+            catch (IOException ioe)
+            {
+                Debug.WriteLine(ioe.ToString());
+            }
         }
     }
 }

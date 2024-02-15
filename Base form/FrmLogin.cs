@@ -1,4 +1,5 @@
 ﻿using ApplicationLogic;
+using Base_form.ServerCommunication;
 using Domain;
 using System;
 using System.Collections.Generic;
@@ -26,8 +27,6 @@ namespace ClientUI
 
             if (btnLogin.Enabled) {
 
-                Controller userController = Controller.Instance;
-
                 User user = new User
                 {
                     Username = tbUsername.Text,
@@ -35,7 +34,7 @@ namespace ClientUI
                 };
 
                 // TODO add validation and red stuff to indicate wrong, also exeption handling if null is provided
-                if(user.Username == "") {
+                if (user.Username == "") {
                     tbUsername.BackColor = Color.Salmon;
                     return;
                 }
@@ -46,10 +45,13 @@ namespace ClientUI
                 }
 
                 try {
-
-                    User currentUser = userController.LoginUser(user);
+                    Communication.Instance.Connect();
+                    // User currentUser = userController.LoginUser(user);
+                    User currentUser = Communication.Instance.Login(user);
+                    
                     if (currentUser != null)
                     {
+                        Controller.Instance.CurrentUser = currentUser;
                         this.DialogResult = DialogResult.OK; // This closes form and return assigned value to whatewer is listening for showDialog 
                     }
                     else
@@ -57,9 +59,9 @@ namespace ClientUI
                         lblUserNotFound.Visible = true;
                     }
                 }
-                catch (Exception)
+                catch (Exception error)
                 {
-                    MessageBox.Show("Error happened while tryingh to log in.");
+                    MessageBox.Show("Error happened while tryingh to log in: " +  error.Message);
                 }
 
             }
@@ -88,6 +90,11 @@ namespace ClientUI
             {
                 lblUserNotFound.Visible = false;
             }
+        }
+
+        private void FrmLogin_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            // idk, do something
         }
     }
 }

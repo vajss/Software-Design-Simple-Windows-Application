@@ -4,15 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain
+namespace Common
 {
     [Serializable]
-    public enum MeasurementUnit
+    public class Request
     {
-        kg = 0,
-        g = 1,
-        m = 2,
-        l = 3,
-        unit = 4
+        public object RequestObject { get; set; }
+        public Operation Operation { get; set; }
     }
 }
