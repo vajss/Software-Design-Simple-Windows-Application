@@ -1,9 +1,12 @@
 ﻿using ApplicationLogic;
+using Base_form.Exceptions;
+using Base_form.ServerCommunication;
 using Domain;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -18,7 +21,17 @@ namespace Base_form.UserControls
         public UCProducts()
         {
             InitializeComponent();
-            this.setGridSettings();
+            try
+            {
+                this.setGridSettings();
+            }
+            catch (ServerCommunicationException)
+            {
+                throw;
+            }
+            catch (Exception e) {
+                Debug.WriteLine(e.ToString());
+            }
             this.setCbSettings();
             this.SetMeasurementUnits();
             this.SetManufacturers();
@@ -27,7 +40,7 @@ namespace Base_form.UserControls
         private void setGridSettings()
         {
             dgvProducts.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.Fill);
-            dgvProducts.DataSource = Controller.Instance.GetAllProducts();
+            dgvProducts.DataSource = Communication.Instance.GetAllProducts();
         }
 
         private void setCbSettings()

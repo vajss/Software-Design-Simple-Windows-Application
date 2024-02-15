@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApplicationLogic", "Applica
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseBroker", "DatabaseBroker\DatabaseBroker.csproj", "{D42653DA-6341-4026-BAB0-E6EF34951034}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "Server\Server.csproj", "{DA0E09D2-943A-4281-AD80-F31936DE08ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{7D0B726E-895E-459D-A64F-F80B5905AC29}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,14 @@ Global
 		{D42653DA-6341-4026-BAB0-E6EF34951034}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D42653DA-6341-4026-BAB0-E6EF34951034}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D42653DA-6341-4026-BAB0-E6EF34951034}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA0E09D2-943A-4281-AD80-F31936DE08ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA0E09D2-943A-4281-AD80-F31936DE08ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA0E09D2-943A-4281-AD80-F31936DE08ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA0E09D2-943A-4281-AD80-F31936DE08ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D0B726E-895E-459D-A64F-F80B5905AC29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D0B726E-895E-459D-A64F-F80B5905AC29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D0B726E-895E-459D-A64F-F80B5905AC29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D0B726E-895E-459D-A64F-F80B5905AC29}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

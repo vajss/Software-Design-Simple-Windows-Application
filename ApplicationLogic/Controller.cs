@@ -26,7 +26,7 @@ namespace ApplicationLogic
         }
         private Controller() { }
 
-        public User CurrentUser { get; private set; }
+        public User CurrentUser { get; set; }
 
         UserDataProvider userDataProvider = new UserDataProvider();
         ProductDataProvider productDataProvider = new ProductDataProvider();
@@ -45,6 +45,7 @@ namespace ApplicationLogic
             {
                 if(user.Username == loginUser.Username && user.Password == loginUser.Password)
                 {
+                    Console.WriteLine(user.Name + " " + user.Password);
                     CurrentUser = user;
                     return user;
                 }

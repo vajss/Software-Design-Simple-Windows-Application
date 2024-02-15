@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace Domain
 {
+    [Serializable]
     public class Invoice
     {
         public int InvoiceId { get; set; }

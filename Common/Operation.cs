@@ -4,15 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain
+namespace Common
 {
     [Serializable]
-    public enum MeasurementUnit
+    public enum Operation
     {
-        kg = 0,
-        g = 1,
-        m = 2,
-        l = 3,
-        unit = 4
+        Login,
+        EndConnection,
+        GetAllProducts
     }
 }
