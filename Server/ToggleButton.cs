@@ -10,12 +10,12 @@ namespace Server
 {
     public class ToggleButton : Button
     {
-        public int rdus = 10;
+        public int buttonRadius = 10;
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
             RectangleF Rect = new RectangleF(0, 0, this.Width, this.Height);
-            using (System.Drawing.Drawing2D.GraphicsPath GraphPath = GetRoundPath(Rect, rdus))
+            using (System.Drawing.Drawing2D.GraphicsPath GraphPath = GetRoundPath(Rect, buttonRadius))
             {
                 Region = new Region(GraphPath);
                 using (Pen pen = new Pen(SystemColors.Control, 0))

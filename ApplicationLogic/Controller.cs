@@ -4,25 +4,28 @@ using DataSource.DatabaseRepository;
 using Domain;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ApplicationLogic
 {
     public class Controller
     {
         private static Controller instance;
+        private static object syncRoot = new object();
 
         public static Controller Instance { 
-            get { 
+            get
+            {
                 if (instance == null)
                 {
-                    instance = new Controller();
+                    lock (syncRoot) // https://stackoverflow.com/questions/12316406/thread-safe-c-sharp-singleton-pattern
+                    {
+                        if (instance == null)
+                            instance = new Controller();
+                    }
                 }
+
                 return instance;
-            } 
+            }
         }
         private Controller() { }
 

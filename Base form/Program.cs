@@ -16,7 +16,7 @@ namespace ClientUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            while (true) // If anythiong breaks restart, unless dialog result is cancel - that  means that user intentionaly closed it
+            while (true) // If anythiong breaks, restart, unless dialog result is cancel - that  means that user intentionaly closed it
             {
                 try
                 {

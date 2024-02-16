@@ -43,8 +43,9 @@ namespace Server
                 while (true)
                 {
                     Socket clientSocket = socket.Accept();
-                    ClientHandler clientHandler = new ClientHandler(clientSocket);
+                    ClientHandler clientHandler = new ClientHandler(clientSocket, clientHandlers);
                     clientHandlers.Add(clientHandler);
+                    clientHandler.ClientSignOff += HandleClientSignOff;
                     Thread handleRequestThread = new Thread(clientHandler.HandleRequest);
                     handleRequestThread.IsBackground = true;
                     handleRequestThread.Start();
@@ -57,10 +58,15 @@ namespace Server
             }
         }
 
+        public void HandleClientSignOff(object sender, EventArgs args)
+        {
+            clientHandlers.Remove((ClientHandler)sender);
+        }
+
         public void Stop()
         {
             socket.Close();
-            foreach (ClientHandler clientHandler in clientHandlers)
+            foreach (ClientHandler clientHandler in clientHandlers.ToList())
             {
                 clientHandler.CloseConnection();
             }

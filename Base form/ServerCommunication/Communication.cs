@@ -65,7 +65,7 @@ namespace Base_form.ServerCommunication
             }
             catch (IOException ioe)
             {
-                throw new ServerCommunicationException(ioe.Message);
+                throw new ServerCommunicationException(ioe.Message); // bace ServerCommunicationException al ga ne vata izgleda
             }
         }
 

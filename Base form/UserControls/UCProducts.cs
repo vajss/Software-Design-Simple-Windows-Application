@@ -1,6 +1,7 @@
 ﻿using ApplicationLogic;
 using Base_form.Exceptions;
 using Base_form.ServerCommunication;
+using Base_form.UIControllers;
 using Domain;
 using System;
 using System.Collections.Generic;
@@ -18,9 +19,11 @@ namespace Base_form.UserControls
     public partial class UCProducts : UserControl
     {
         int selectedId;
+        AllProductsController controller;
         public UCProducts()
         {
             InitializeComponent();
+            controller = new AllProductsController(); // now use it for all stuff and provide it with this -> DONT FORGET TO ENCAPSULATE FIELDS IN OTHER PART OF PARTIAL CLASS
             try
             {
                 this.setGridSettings();

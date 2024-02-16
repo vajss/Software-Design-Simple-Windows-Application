@@ -43,11 +43,11 @@ namespace Server
             this.btnToggle.Font = new System.Drawing.Font("Microsoft Sans Serif", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnToggle.ForeColor = System.Drawing.Color.White;
             this.btnToggle.Location = new System.Drawing.Point(350, 250);
-            this.btnToggle.rdus = 40;
+            this.btnToggle.buttonRadius = 40;
             this.btnToggle.Name = "btnToggle";
             this.btnToggle.Size = new System.Drawing.Size(80, 40);
             this.btnToggle.TabIndex = 0;
-            this.btnToggle.Text = "O";
+            this.btnToggle.Text = "⬤";
             this.btnToggle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnToggle.UseVisualStyleBackColor = false;
             this.btnToggle.Click += new System.EventHandler(this.btnToggle_Click);

@@ -18,8 +18,9 @@ namespace Server
         bool end = false;
         private Socket socket;
         CommunicationHelper helper;
+        public event EventHandler<EventArgs> ClientSignOff;
 
-        public ClientHandler(Socket socket) 
+        public ClientHandler(Socket socket, List<ClientHandler> allClients) 
         {
             this.socket = socket;
             helper = new CommunicationHelper(socket);
@@ -76,14 +77,20 @@ namespace Server
             return response;
         }
 
+        object lockobject = new object();
         internal void CloseConnection()
         {
-            if (socket != null)
+            // this is just in case both threads call this at the same time - client disconects and server fails
+            lock (lockobject)
             {
-                end = true;
-                socket.Shutdown(SocketShutdown.Both);
-                socket.Close();
-                socket = null;
+                if (socket != null)
+                {
+                    end = true;
+                    socket.Shutdown(SocketShutdown.Both);
+                    socket.Close();
+                    socket = null;
+                    ClientSignOff.Invoke(this, EventArgs.Empty);
+                }
             }
         }
     }

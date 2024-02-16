@@ -1,4 +1,6 @@
-﻿namespace Base_form.UserControls
+﻿using System.Windows.Forms;
+
+namespace Base_form.UserControls
 {
     partial class UCProducts
     {
@@ -217,5 +219,19 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnDetails;
         private System.Windows.Forms.Button btnUpdate;
+
+        public DataGridView DgvProducts { get => dgvProducts; set => dgvProducts = value; }
+        public TextBox TbName { get => tbName; set => tbName = value; }
+        public TextBox TbDescription { get => tbDescription; set => tbDescription = value; }
+        public Label Label1 { get => label1; set => label1 = value; }
+        public Label Label2 { get => label2; set => label2 = value; }
+        public Label Label3 { get => label3; set => label3 = value; }
+        public TextBox TbPrice { get => tbPrice; set => tbPrice = value; }
+        public ComboBox CbMeasurementUnit { get => cbMeasurementUnit; set => cbMeasurementUnit = value; }
+        public ComboBox CbManufacturer { get => cbManufacturer; set => cbManufacturer = value; }
+        public Label Label4 { get => label4; set => label4 = value; }
+        public Label Label5 { get => label5; set => label5 = value; }
+        public Button BtnDetails { get => btnDetails; set => btnDetails = value; }
+        public Button BtnUpdate { get => btnUpdate; set => btnUpdate = value; }
     }
 }
